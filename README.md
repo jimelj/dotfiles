@@ -13,3 +13,4 @@ Setting up  dotfiles [dotfiles.eieio.xyz] (https://dotfiles.eieio.xyz).
 - TrackPad (Three Finger Drag and Tap to Click)
 - .zshrc
 - Git (config and SSH)
+- Homebrew Install
