@@ -11,6 +11,4 @@ Setting up  dotfiles [dotfiles.eieio.xyz] (https://dotfiles.eieio.xyz).
 - Mission Control Preferences ( don't rearrange spaces)
 - Finder Show Path Bar
 - TrackPad (Three Finger Drag and Tap to Click)
-- .zshrc
 - Git (config and SSH)
-- Homebrew Install
