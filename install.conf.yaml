@@ -13,6 +13,8 @@
     - ~/WebDev/Tutorials
 
 - shell:
-#   - [git submodule update --init --recursive, Installing submodules]
-    - echo "hey you guys"
-    - sleep 5
+    -
+      command: ./setup_homebrew.zsh
+      stdout: true
+      stderr: true
+
