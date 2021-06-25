@@ -12,3 +12,4 @@ Setting up  dotfiles [dotfiles.eieio.xyz] (https://dotfiles.eieio.xyz).
 - Finder Show Path Bar
 - TrackPad (Three Finger Drag and Tap to Click)
 - Git (config and SSH)
+- Alfred (turn off Spotlight shourcut and use it for alfred)
