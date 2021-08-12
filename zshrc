@@ -10,6 +10,7 @@ echo 'Hello from .zshrc'
 alias ls='exa -laFh --git'
 alias exa='exa -laFh --git'
 alias man=batman
+alias bbd='brew bundle dump --force --describe'
 
 # Customize Prompt(s)  (original = %n@%m %1~ %#)
 PROMPT='
