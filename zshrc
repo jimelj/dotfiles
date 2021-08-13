@@ -11,6 +11,7 @@ alias ls='exa -laFh --git'
 alias exa='exa -laFh --git'
 alias man=batman
 alias bbd='brew bundle dump --force --describe'
+alias trail='<<<${(F)path}'
 
 # Customize Prompt(s)  (original = %n@%m %1~ %#)
 PROMPT='
@@ -26,7 +27,6 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 function mkcd() {
   mkdir -p "$@" && cd "$_";
 }
-
 
 
 # Use ZSH Plugins 
