@@ -11,3 +11,10 @@ else
   echo "Installing Node & NPM with n..."
   n lastest
 fi
+
+# Install Global NPM Pakcages
+
+npm i -g firebase-tools
+
+echo "Global NPM Packages Installed"
+npm list -g --depth=0
