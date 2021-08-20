@@ -16,6 +16,7 @@ fi
 
 npm i -g firebase-tools
 npm i -g trash-cli
+npm i -g yarn
 
 echo "Global NPM Packages Installed"
 npm list -g --depth=0
