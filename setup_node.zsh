@@ -15,6 +15,7 @@ fi
 # Install Global NPM Pakcages
 
 npm i -g firebase-tools
+npm i -g trash-cli
 
 echo "Global NPM Packages Installed"
 npm list -g --depth=0
