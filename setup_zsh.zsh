@@ -12,7 +12,7 @@ else
 echo '/opt/homebrew/bin/zsh' | sudo tee -a '/etc/shells' >/dev/null
 fi
 
-if ["$SHELL" = '/opt/homebrew/bin/zsh' ]; then
+if [ "$SHELL" = '/opt/homebrew/bin/zsh' ]; then
 echo '$SHELL is already /opt/homebrew/bin/zsh'
 else
 echo "Enter user password to change login shell"
