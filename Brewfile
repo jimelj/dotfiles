@@ -6,6 +6,8 @@ tap "homebrew/core"
 brew "bat"
 # Modern replacement for 'ls'
 brew "exa"
+# Improved top (interactive process viewer)
+brew "htop"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
 # Pager program similar to more
@@ -24,6 +26,10 @@ brew "eth-p/software/bat-extras"
 cask "alfred"
 # Web browser
 cask "google-chrome"
+# Terminal built on web technologies
+cask "hyper"
+# Explore and manipulate your MongoDB data
+cask "mongodb-compass"
 # App to write, plan, collaborate, and get organized
 cask "notion"
 # Remote access and connectivity software focused on security
