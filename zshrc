@@ -48,4 +48,4 @@ function mkcd() {
 
 
 # ... and Other Surprises
-
+neofetch
