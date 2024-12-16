@@ -19,7 +19,7 @@ brew "n"
 # Free (GNU) replacement for the Pico text editor
 brew "nano"
 # Fast, highly customisable system info script
-brew "neofetch"
+brew "fastfetch"
 # Platform built on V8 to build network applications
 brew "node"
 # Generic machine emulator and virtualizer
@@ -28,8 +28,6 @@ brew "qemu"
 brew "zsh"
 # Bash scripts that integrate bat with various command-line tools
 brew "eth-p/software/bat-extras"
-# Application launcher and productivity software
-cask "alfred"
 # OpenAI's official ChatGPT desktop app
 cask "chatgpt"
 # Terminal built on web technologies
@@ -44,11 +42,13 @@ cask "teamviewer"
 cask "utm"
 # Open-source code editor
 cask "visual-studio-code"
+# Drivers for DisplayLink docks, adapters and monitors
+cask "displaylink"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "Hotspot Shield", id: 771076721
-mas "Microsoft Remote Desktop", id: 1295203466
 mas "Notability", id: 360593530
+mas "Windows App", id: 1295203466
 mas "‎WhatsApp", id: 310633997
 vscode "ms-python.debugpy"
 vscode "ms-python.python"
