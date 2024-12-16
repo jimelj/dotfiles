@@ -46,6 +46,8 @@ cask "utm"
 cask "visual-studio-code"
 # Drivers for DisplayLink docks, adapters and monitors
 cask "displaylink"
+#Microsoft Office 
+cask "microsoft-office-businesspro"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "Hotspot Shield", id: 771076721
