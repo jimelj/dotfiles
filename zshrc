@@ -18,6 +18,11 @@ alias bbd='brew bundle dump --force --describe'
 alias trail='<<<${(F)path}'
 alias rm=trash
 
+# Thefuck aliases 
+eval $(thefuck --alias)
+eval $(thefuck --alias fuck)
+
+
 # Customize Prompt(s)  (original = %n@%m %1~ %#)
 PROMPT='
 %1~ %L %# '

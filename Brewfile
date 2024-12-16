@@ -20,6 +20,8 @@ brew "n"
 brew "nano"
 # Fast, highly customisable system info script
 brew "fastfetch"
+# Programmatically correct mistyped console commands
+brew "thefuck"
 # Platform built on V8 to build network applications
 brew "node"
 # Generic machine emulator and virtualizer
