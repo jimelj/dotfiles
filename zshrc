@@ -32,6 +32,7 @@ RPROMPT='%*'
 # Add Location to $path Array Variable
 # export PATH="$N_PREFIX/bin:$PATH"
 # export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+# export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 typeset -U path 
 
