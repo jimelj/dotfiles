@@ -40,6 +40,8 @@ cask "mongodb-compass"
 cask "notion"
 # Remote access and connectivity software focused on security
 cask "teamviewer"
+# Google Chrome Web Browser
+cask "google-chrome"
 # Virtual machines UI using QEMU
 cask "utm"
 # Open-source code editor
