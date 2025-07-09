@@ -13,6 +13,8 @@ brew "fastfetch"
 brew "htop"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
 # Pager program similar to more
 brew "less"
 # Sophisticated file transfer program
@@ -23,6 +25,8 @@ brew "mas"
 brew "n"
 # Free (GNU) replacement for the Pico text editor
 brew "nano"
+# Fast, highly customisable system info script
+brew "neofetch"
 # Platform built on V8 to build network applications
 brew "node"
 # Data loading tool for PostgreSQL
@@ -37,6 +41,8 @@ brew "qemu"
 brew "thefuck"
 # Command-line unarchiving tools supporting multiple formats
 brew "unar"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Bash scripts that integrate bat with various command-line tools
@@ -84,6 +90,21 @@ cask "visual-studio-code"
 # Video communication and virtual meeting platform
 cask "zoom"
 vscode "github.vscode-github-actions"
+# Drivers for DisplayLink docks, adapters and monitors
+cask "displaylink"
+# Reverse proxy, secure introspectable tunnels to localhost
+cask "ngrok"
+# Remote access and connectivity software focused on security
+cask "teamviewer"
+# Video communication and virtual meeting platform
+cask "zoom"
+mas "Hotspot Shield", id: 771076721
+mas "Notability", id: 360593530
+mas "WhatsApp", id: 310633997
+mas "Windows App", id: 1295203466
+vscode "github.vscode-github-actions"
+vscode "ms-azuretools.vscode-docker"
 vscode "ms-python.debugpy"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
+vscode "ms-vscode-remote.remote-containers"
