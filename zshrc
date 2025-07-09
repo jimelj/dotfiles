@@ -17,6 +17,7 @@ alias man=batman
 alias bbd='brew bundle dump --force --describe'
 alias trail='<<<${(F)path}'
 alias rm=trash
+alias tmp="cd /private/tmp"
 
 # Thefuck aliases 
 eval $(thefuck --alias)
