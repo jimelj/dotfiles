@@ -80,40 +80,9 @@ setopt EXTENDED_GLOB           # Enable advanced pattern matching
 # =============================================================================
 # ENVIRONMENT VARIABLES
 # =============================================================================
-# These set up variables that programs can use
-
-# Set default pager to bat (your enhanced cat command)
-# When programs need to display text, they'll use bat instead of less/more
-export NULLCMD=bat
-
-# Node.js version management with 'n' tool
-# These tell the 'n' tool where to install Node.js versions
-export N_PREFIX="$HOME/.n"     # Directory where 'n' installs Node versions
-export PREFIX="$N_PREFIX"      # Alternative variable some tools use
-
-# Starship prompt configuration
-# Tells Starship where to find its configuration file
-export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
-
-# Carapace completion engine configuration
-# Enables better completions for various shells and tools
-export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
-
-# =============================================================================
-# PATH CONFIGURATION
-# =============================================================================
-# The PATH variable tells the shell where to look for executable programs
-
-# Use typeset -U to make path array unique (no duplicates)
-# This prevents the same directory from being added to PATH multiple times
-typeset -U path
-
-# Define the PATH in order of priority (first directories are checked first)
-path=(
-  "$N_PREFIX/bin"  # Node.js binaries from 'n' tool (highest priority)
-  $path            # Existing PATH directories (preserves system paths)
-  "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"  # VS Code CLI
-)
+# Note: Environment variables and PATH configuration have been moved to .zshenv
+# This ensures they are available in all ZSH sessions, including scripts and automation.
+# See .zshenv for the actual environment configuration.
 
 # =============================================================================
 # ALIASES - SHORTCUTS FOR COMMANDS
@@ -121,7 +90,7 @@ path=(
 # Aliases let you create shortcuts for longer commands
 
 # FILE OPERATION ALIASES
-alias ls='eza -lahF --git'    # Enhanced ls with git info, human-readable sizes
+alias ls='eza -lahF --git --icons'    # Enhanced ls with git info, human-readable sizes
 alias ll='eza -lahF --git'    # Same as ls (common alternative)
 alias la='eza -lahF --git'    # Same as ls (another common alternative)
 alias lt='eza --tree --level=2'        # Show directory tree (2 levels deep)
@@ -140,7 +109,7 @@ alias tmp='cd /private/tmp'   # Quick access to temp directory
 
 # DEVELOPMENT ALIASES
 alias bbd='brew bundle dump --force --describe'  # Update Brewfile with current packages
-alias trail='<<<${(F)path}'   # Show all directories in PATH (one per line)
+alias trail='show_path'   # Show all directories in PATH (one per line) - uses function from .zshenv
 
 # THEFUCK ALIASES - Command correction tool
 # These create aliases for correcting typos in commands
@@ -266,14 +235,7 @@ zstyle ':completion:*:man:*' menu yes select
 # =============================================================================
 # Enhanced completions for tools you have installed
 
-# Brew completion (if you have Homebrew)
-if command -v brew &> /dev/null; then
-  # Enable brew completions
-  if type brew &>/dev/null; then
-    FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-    autoload -Uz compinit
-  fi
-fi
+# Brew completion setup moved to .zshenv for system-wide availability
 
 # Git completion enhancements
 if command -v git &> /dev/null; then
