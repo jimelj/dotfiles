@@ -11,6 +11,12 @@
     ~/.config/bat:
       create: true
       path: config/bat
+    ~/.config/ghostty:
+      create: true
+      path: config/ghostty
+    ~/.config/tmux:
+      create: true
+      path: config/tmux
 
 - create:
     - ~/Work

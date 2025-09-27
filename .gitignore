@@ -1,1 +1,4 @@
 Brewfile.lock.json
+
+# Tmux plugins (managed by TPM)
+config/tmux/plugins/

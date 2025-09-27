@@ -16,5 +16,8 @@ else
 
 fi
 
+echo "\n<<< Starting TMUX Plugin Manager >>>\n"
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 brew bundle --verbose

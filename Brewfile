@@ -6,16 +6,26 @@ tap "mongodb/brew"
 brew "libgit2"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Multi-shell multi-command argument completer
+brew "carapace"
 # Modern, maintained replacement for ls
 brew "eza"
 # Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GitHub command-line tool
+brew "gh"
 # Interpreter for PostScript and PDF
 brew "ghostscript"
 # Improved top (interactive process viewer)
 brew "htop"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
 # Pager program similar to more
 brew "less"
 # Sophisticated file transfer program
@@ -40,10 +50,16 @@ brew "postgresql@14", restart_service: :changed
 brew "python@3.10"
 # Generic machine emulator and virtualizer
 brew "qemu"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
 # Programmatically correct mistyped console commands
 brew "thefuck"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
 # Command-line unarchiving tools supporting multiple formats
 brew "unar"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Bash scripts that integrate bat with various command-line tools
@@ -98,3 +114,4 @@ vscode "github.vscode-github-actions"
 vscode "ms-python.debugpy"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
