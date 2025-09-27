@@ -1,5 +1,8 @@
 
+# Main prompt format - organized by sections
 format = """
+$username\
+$hostname\
 $directory\
 $git_branch\
 $git_status\
@@ -14,13 +17,23 @@ $ruby\
 $package\
 $aws\
 $docker_context\
+$memory_usage\
+$battery\
+$time\
 $jobs\
 $cmd_duration\
 $line_break\
 $character"""
 
+# Add schema for editor completions
+"$schema" = 'https://starship.rs/config-schema.json'
+
 add_newline = true
 palette = 'nord'
+
+# Performance optimizations
+scan_timeout = 30
+command_timeout = 500
 
 [directory]
 style = 'bold fg:dark_blue'
@@ -43,6 +56,18 @@ format = '[on](white) [$symbol$branch ]($style)'
 [git_status]
 style = 'fg:green'
 format = '([$all_status$ahead_behind]($style) )'
+
+# Enhanced directory substitutions for common folders
+[directory.substitutions]
+'Desktop' = '󰀶'
+'Videos' = '󰕧'
+'Projects' = '󰲋'
+'Code' = '󰨞'
+'Work' = '󰢱'
+'WebDev' = '󰇧'
+'Git' = '󰊢'
+'GitHub' = '󰊤'
+'git' = '󰊢'
 
 [fill]
 symbol = ' '
@@ -102,6 +127,39 @@ format = '[$symbol]($style)'
 min_time = 500
 style = 'fg:gray'
 format = '[$duration]($style)'
+
+# Additional useful modules
+[memory_usage]
+disabled = false
+threshold = 70
+symbol = '󰍛 '
+style = 'bold dimmed red'
+
+[battery]
+full_symbol = '󰁹 '
+charging_symbol = '󰂄 '
+discharging_symbol = '󰁺 '
+
+[time]
+disabled = false
+format = '🕙 [$time](bold yellow) '
+timezone = 'America/New_York'
+time_range = '09:00:00-17:00:00'
+
+[username]
+style_user = 'bold blue'
+style_root = 'bold red'
+format = '[$user]($style) '
+
+[hostname]
+ssh_only = true
+format = 'on [$hostname](bold red) '
+disabled = false
+
+[character]
+success_symbol = '[➜](bold green)'
+error_symbol = '[➜](bold red)'
+vimcmd_symbol = '[<](bold yellow)'
 
 [palettes.nord]
 dark_blue = '#5E81AC'
