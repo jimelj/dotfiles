@@ -17,7 +17,9 @@
     ~/.config/tmux:
       create: true
       path: config/tmux
-
+    ~/.config/starship:
+          create: true
+          path: config/starship
 - create:
     - ~/Work
     - ~/WebDev/Tutorials

@@ -1,114 +1,130 @@
-# Starship Configuration
-# A fast, customizable prompt for any shell
-# Documentation: https://starship.rs/config/
 
-# Get editor completions based on the config schema
-"$schema" = 'https://starship.rs/config-schema.json'
+format = """
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$python\
+$lua\
+$nodejs\
+$golang\
+$haskell\
+$rust\
+$ruby\
+$package\
+$aws\
+$docker_context\
+$jobs\
+$cmd_duration\
+$line_break\
+$character"""
 
-# Inserts a blank line between shell prompts
 add_newline = true
+palette = 'nord'
 
-# Replace the "❯" symbol in the prompt with "➜"
-[character]
-success_symbol = "[➜](bold green)"
-error_symbol = "[➜](bold red)"
-
-# Disable the package module, hiding it from the prompt completely
-[package]
-disabled = true
-
-# Customize the directory module
 [directory]
-style = "bold cyan"
+style = 'bold fg:dark_blue'
+format = '[$path ]($style)'
 truncation_length = 3
-truncation_symbol = "…/"
+truncation_symbol = '…/'
+truncate_to_repo = false
 
-# Customize the git module
+[directory.substitutions]
+'Documents' = '󰈙'
+'Downloads' = ' '
+'Music' = ' '
+'Pictures' = ' '
+
 [git_branch]
-symbol = "🌱 "
-truncation_length = 20
-truncation_symbol = "…"
+style = 'fg:green'
+symbol = ' '
+format = '[on](white) [$symbol$branch ]($style)'
 
 [git_status]
-conflicted = "🏳"
-ahead = "🏎💨"
-behind = "😰"
-diverged = "😵"
-up_to_date = "✓"
-untracked = "🤷"
-stashed = "📦"
-modified = "📝"
-staged = "➕"
-renamed = "👅"
-deleted = "🗑"
+style = 'fg:green'
+format = '([$all_status$ahead_behind]($style) )'
 
-# Customize the nodejs module
-[nodejs]
-symbol = "⬢ "
-style = "bold green"
-
-# Customize the python module
-[python]
-symbol = "🐍 "
-style = "bold blue"
-
-# Customize the rust module
-[rust]
-symbol = "🦀 "
-style = "bold red"
-
-# Customize the golang module
-[golang]
-symbol = "🐹 "
-style = "bold cyan"
-
-# Customize the docker module
-[docker_context]
-symbol = "🐳 "
-style = "bold blue"
-
-# Customize the memory module
-[memory_usage]
-disabled = false
-threshold = 70
-symbol = "🐏 "
-style = "bold dimmed red"
-
-# Customize the battery module
-[battery]
-full_symbol = "🔋 "
-charging_symbol = "⚡️ "
-discharging_symbol = "💀 "
-
-# Customize the time module
-[time]
-disabled = false
-format = "🕙 [$time](bold yellow) "
-timezone = "America/New_York"
-time_range = "09:00:00-17:00:00"
-
-# Customize the username module
-[username]
-style_user = "bold blue"
-style_root = "bold red"
-format = "[$user]($style) "
-
-# Customize the hostname module
-[hostname]
-ssh_only = true
-format = "on [$hostname](bold red) "
-disabled = false
-
-# Customize the cmd_duration module
-[cmd_duration]
-min_time = 2000
-format = "took [$duration](bold yellow) "
-
-# Customize the line_break module
-[line_break]
-disabled = false
-
-# Customize the fill module
 [fill]
-symbol = " "
-style = "black"
+symbol = ' '
+
+[python]
+style = 'teal'
+symbol = ' '
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+pyenv_version_name = true
+pyenv_prefix = ''
+
+[lua]
+symbol = ' '
+
+[nodejs]
+style = 'blue'
+symbol = ' '
+
+[golang]
+style = 'blue'
+symbol = ' '
+
+[haskell]
+style = 'blue'
+symbol = ' '
+
+[rust]
+style = 'orange'
+symbol = ' '
+
+[ruby]
+style = 'blue'
+symbol = ' '
+
+[package]
+symbol = '󰏗 '
+
+[aws]
+symbol = ' '
+style = 'yellow'
+format = '[$symbol($profile )(\[$duration\] )]($style)'
+
+[docker_context]
+symbol = ' '
+style = 'fg:#06969A'
+format = '[$symbol]($style) $path'
+detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
+detect_extensions = ['Dockerfile']
+
+[jobs]
+symbol = ' '
+style = 'red'
+number_threshold = 1
+format = '[$symbol]($style)'
+
+[cmd_duration]
+min_time = 500
+style = 'fg:gray'
+format = '[$duration]($style)'
+
+[palettes.nord]
+dark_blue = '#5E81AC'
+blue = '#81A1C1'
+teal = '#88C0D0'
+red = '#BF616A'
+orange = '#D08770'
+green = '#A3BE8C'
+yellow = '#EBCB8B'
+purple = '#B48EAD'
+gray = '#434C5E'
+black = '#2E3440'
+white='#D8DEE9'
+
+[palettes.onedark]
+dark_blue='#61afef'
+blue='#56b6c2'
+red='#e06c75'
+green='#98c379'
+purple='#c678dd'
+cyan='#56b6c2'
+orange='#be5046'
+yellow='#e5c07b'
+gray='#828997'
+white ='#abb2bf'
+black='#2c323c'
