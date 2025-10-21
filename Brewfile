@@ -40,6 +40,8 @@ brew "node"
 brew "n"
 # Free (GNU) replacement for the Pico text editor
 brew "nano"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
 # Manage multiple Node.js versions
 brew "nvm"
 # Data loading tool for PostgreSQL
@@ -52,8 +54,12 @@ brew "python@3.10"
 brew "qemu"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Cross-shell prompt for astronauts
+brew "starship"
 # Programmatically correct mistyped console commands
 brew "thefuck"
+# Terminal multiplexer
+brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Command-line unarchiving tools supporting multiple formats
@@ -62,12 +68,18 @@ brew "unar"
 brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Fish shell like syntax highlighting for zsh
+brew "zsh-syntax-highlighting"
 # Bash scripts that integrate bat with various command-line tools
 brew "eth-p/software/bat-extras"
 # High-performance, schema-free, document-oriented database
 brew "mongodb/brew/mongodb-community@7.0"
 # OpenAI's official ChatGPT desktop app
 cask "chatgpt"
+# Command-line agent for Cursor
+cask "cursor-cli"
 # Browser for SQLite databases
 cask "db-browser-for-sqlite"
 # Voice and text chat software
@@ -76,6 +88,7 @@ cask "discord"
 cask "displaylink"
 # App to build and share containerised applications and microservices
 cask "docker-desktop"
+cask "font-jetbrains-mono-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 # Web browser

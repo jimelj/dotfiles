@@ -47,18 +47,6 @@ truncate_to_repo = false
 'Downloads' = ' '
 'Music' = ' '
 'Pictures' = ' '
-
-[git_branch]
-style = 'fg:green'
-symbol = ' '
-format = '[on](white) [$symbol$branch ]($style)'
-
-[git_status]
-style = 'fg:green'
-format = '([$all_status$ahead_behind]($style) )'
-
-# Enhanced directory substitutions for common folders
-[directory.substitutions]
 'Desktop' = '󰀶'
 'Videos' = '󰕧'
 'Projects' = '󰲋'
@@ -68,6 +56,15 @@ format = '([$all_status$ahead_behind]($style) )'
 'Git' = '󰊢'
 'GitHub' = '󰊤'
 'git' = '󰊢'
+
+[git_branch]
+style = 'fg:green'
+symbol = ' '
+format = '[on](white) [$symbol$branch ]($style)'
+
+[git_status]
+style = 'fg:green'
+format = '([$all_status$ahead_behind]($style) )'
 
 [fill]
 symbol = ' '
@@ -143,7 +140,6 @@ discharging_symbol = '󰁺 '
 [time]
 disabled = false
 format = '🕙 [$time](bold yellow) '
-timezone = 'America/New_York'
 time_range = '09:00:00-17:00:00'
 
 [username]
