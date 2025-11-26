@@ -8,6 +8,3 @@ window-decoration = true
 macos-option-as-alt = true
 background-opacity = 0.9
 background-blur-radius = 20
-keybind = shift+enter=text:\n
-background-opacity = 0.5
-

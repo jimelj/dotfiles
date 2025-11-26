@@ -34,7 +34,7 @@ brew "lftp"
 brew "libomp"
 # Mac App Store command-line interface
 brew "mas"
-# Platform built on V8 to build network applications
+# Open-source, cross-platform JavaScript runtime environment
 brew "node"
 # Node version management
 brew "n"
@@ -44,8 +44,12 @@ brew "nano"
 brew "neovim"
 # Manage multiple Node.js versions
 brew "nvm"
+# Swiss-army knife of markup format conversion
+brew "pandoc"
 # Data loading tool for PostgreSQL
 brew "pgloader"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
 # Object-relational database system
 brew "postgresql@14", restart_service: :changed
 # Interpreted, interactive, object-oriented programming language
@@ -78,6 +82,8 @@ brew "eth-p/software/bat-extras"
 brew "mongodb/brew/mongodb-community@7.0"
 # OpenAI's official ChatGPT desktop app
 cask "chatgpt"
+# OpenAI's coding agent that runs in your terminal
+cask "codex"
 # Command-line agent for Cursor
 cask "cursor-cli"
 # Browser for SQLite databases
@@ -123,6 +129,13 @@ cask "utm"
 cask "visual-studio-code"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "Dashlane", id: 517914548
+mas "Grammarly for Safari", id: 1462114288
+mas "Hotspot Shield", id: 771076721
+mas "Notability", id: 360593530
+mas "WhatsApp", id: 310633997
+mas "Windows App", id: 1295203466
+mas "Xcode", id: 497799835
 vscode "github.vscode-github-actions"
 vscode "ms-python.debugpy"
 vscode "ms-python.python"
