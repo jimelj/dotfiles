@@ -1,6 +1,4 @@
 tap "eth-p/software"
-tap "homebrew/bundle"
-tap "homebrew/services"
 tap "mongodb/brew"
 # C library of Git core methods that is re-entrant and linkable
 brew "libgit2"
@@ -42,8 +40,8 @@ brew "n"
 brew "nano"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# Manage multiple Node.js versions
-brew "nvm"
+# Create, run, and share large language models (LLMs)
+brew "ollama"
 # Swiss-army knife of markup format conversion
 brew "pandoc"
 # Data loading tool for PostgreSQL
@@ -51,15 +49,17 @@ brew "pgloader"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
 # Object-relational database system
-brew "postgresql@14", restart_service: :changed
+brew "postgresql@17", restart_service: :changed
 # Interpreted, interactive, object-oriented programming language
-brew "python@3.10"
+brew "python@3.12"
 # Generic machine emulator and virtualizer
 brew "qemu"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Cross-shell prompt for astronauts
 brew "starship"
+# Easiest, most secure way to use WireGuard and 2FA
+brew "tailscale"
 # Programmatically correct mistyped console commands
 brew "thefuck"
 # Terminal multiplexer
@@ -99,8 +99,6 @@ cask "font-jetbrains-mono-nerd-font"
 cask "ghostty"
 # Web browser
 cask "google-chrome"
-# Terminal built on web technologies
-cask "hyper"
 # Software for Logitech devices
 cask "logitech-options"
 # Provides updates to various Microsoft products
@@ -133,6 +131,7 @@ mas "Dashlane", id: 517914548
 mas "Grammarly for Safari", id: 1462114288
 mas "Hotspot Shield", id: 771076721
 mas "Notability", id: 360593530
+mas "Tailscale", id: 1475387142
 mas "WhatsApp", id: 310633997
 mas "Windows App", id: 1295203466
 mas "Xcode", id: 497799835

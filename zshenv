@@ -75,9 +75,13 @@ function show_path() {
 # =============================================================================
 # Set up completion system for all ZSH sessions
 
-# Add Homebrew completions to FPATH if available
-if command -v brew &> /dev/null; then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+# Add Homebrew completions to FPATH
+# Hardcoded path for Apple Silicon (avoids slow `brew --prefix` call ~30-50ms)
+if [[ -d "/opt/homebrew/share/zsh/site-functions" ]]; then
+  FPATH="/opt/homebrew/share/zsh/site-functions:${FPATH}"
+elif [[ -d "/usr/local/share/zsh/site-functions" ]]; then
+  # Intel Mac fallback
+  FPATH="/usr/local/share/zsh/site-functions:${FPATH}"
 fi
 
 # =============================================================================
