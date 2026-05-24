@@ -1,5 +1,6 @@
 tap "eth-p/software"
 tap "mongodb/brew"
+tap "supabase/tap"
 # C library of Git core methods that is re-entrant and linkable
 brew "libgit2"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -18,6 +19,8 @@ brew "fzf"
 brew "gh"
 # Interpreter for PostScript and PDF
 brew "ghostscript"
+# CLI for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more
+brew "googleworkspace-cli"
 # Improved top (interactive process viewer)
 brew "htop"
 # User-friendly cURL replacement (command-line HTTP client)
@@ -54,6 +57,8 @@ brew "postgresql@17", restart_service: :changed
 brew "python@3.12"
 # Generic machine emulator and virtualizer
 brew "qemu"
+# Command-line interface for Render
+brew "render"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Cross-shell prompt for astronauts
@@ -80,6 +85,12 @@ brew "zsh-syntax-highlighting"
 brew "eth-p/software/bat-extras"
 # High-performance, schema-free, document-oriented database
 brew "mongodb/brew/mongodb-community@7.0"
+# Supabase CLI
+brew "supabase/tap/supabase"
+# Agent orchestration platform
+cask "antigravity"
+# Terminal interface for Antigravity agents
+cask "antigravity-cli"
 # OpenAI's official ChatGPT desktop app
 cask "chatgpt"
 # OpenAI's coding agent that runs in your terminal
@@ -128,7 +139,6 @@ cask "visual-studio-code"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "Dashlane", id: 517914548
-mas "Grammarly for Safari", id: 1462114288
 mas "Hotspot Shield", id: 771076721
 mas "Notability", id: 360593530
 mas "Tailscale", id: 1475387142
@@ -140,3 +150,11 @@ vscode "ms-python.debugpy"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
 vscode "ms-python.vscode-python-envs"
+npm "@anthropic-ai/claude-code"
+npm "@mermaid-js/mermaid-cli"
+npm "@railway/cli"
+npm "firebase-tools"
+npm "pnpm"
+npm "tailwindcss"
+npm "trash-cli"
+npm "yarn"
