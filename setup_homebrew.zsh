@@ -45,14 +45,17 @@ else
   brew install gum
 fi
 
-# --- Are we signed into the App Store? ------------------------------------
-MAS_OK=false
+# --- App Store note -------------------------------------------------------
+# `mas account` is unreliable on recent macOS (Apple removed the private API
+# it relied on), so it reports "not signed in" even when you are. We no longer
+# gate on it: App Store apps are always offered. brew bundle runs `mas install`
+# directly, which works when you're signed in; if you're not, only those
+# specific installs fail and you can re-run after signing in.
 if mas account >/dev/null 2>&1; then
-  MAS_OK=true
   echo "\nApp Store: signed in as $(mas account)"
 else
-  echo "\nApp Store: not signed in - App Store (mas) apps will be left out."
-  echo "  To include them, sign into the App Store app and re-run ./install."
+  echo "\nApp Store: sign-in status unknown (this check is unreliable on recent macOS)."
+  echo "  App Store apps are still offered. If any fail, sign into the App Store app and re-run ./install."
 fi
 
 # --- Parse the Brewfile into taps + selectable items ----------------------
@@ -65,8 +68,6 @@ while IFS= read -r line; do
     TAP_LINES+="$line"
   elif [[ "$line" =~ '^[[:space:]]*(brew|cask|mas|vscode)[[:space:]]+"([^"]+)"' ]]; then
     local kind="${match[1]}" name="${match[2]}"
-    # Skip App Store apps when not signed in.
-    [[ "$kind" == "mas" && "$MAS_OK" != true ]] && continue
     local label="${kind}: ${name}"
     LABELS+="$label"
     ITEM_LINE[$label]="$line"
