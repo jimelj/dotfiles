@@ -108,7 +108,20 @@ alias .....='cd ../../../..' # Go up four directories
 alias tmp='cd /private/tmp'   # Quick access to temp directory
 
 # DEVELOPMENT ALIASES
-alias bbd='brew bundle dump --force --describe'  # Update Brewfile with current packages
+# Snapshot everything installed on THIS machine to Brewfile.local (gitignored)
+# without touching the tracked master Brewfile. The master is a hand-curated
+# "menu of everything" shared across machines; auto-dumping into it would prune
+# it to one machine's packages and cause merge conflicts. Diff, then copy any
+# genuinely new lines into Brewfile by hand.
+bbd() {
+  brew bundle dump --force --describe --file="$HOME/.dotfiles/Brewfile.local"
+  echo "Snapshot -> ~/.dotfiles/Brewfile.local (gitignored)"
+  echo "See what's new:  diff ~/.dotfiles/Brewfile ~/.dotfiles/Brewfile.local"
+}
+
+# bbsync: append apps installed on THIS machine (but not yet in the master
+# Brewfile) to the Brewfile, then commit and push. `bbsync --dry-run` previews.
+bbsync() { "$HOME/.dotfiles/bbsync.zsh" "$@" }
 alias trail='show_path'   # Show all directories in PATH (one per line) - uses function from .zshenv
 
 # THEFUCK ALIASES - Command correction tool
@@ -285,6 +298,8 @@ fi
 # Initialize zoxide (smart cd)
 # Zoxide learns your directory usage and provides smart cd suggestions
 if command -v zoxide &> /dev/null; then  # Check if zoxide is installed
+  # Note: the zoxide "doctor" warning is silenced via _ZO_DOCTOR=0 in .zshenv
+  # (zsh-syntax-highlighting must be sourced after zoxide, which is correct).
   eval "$(zoxide init --cmd cd zsh)"  # Initialize zoxide with 'cd' command
 fi
 
@@ -311,20 +326,29 @@ if [[ $- == *i* ]]; then  # Check if this is an interactive shell
 fi
 
 # =============================================================================
-# PLUGINS (Optional - uncomment if you want to add them)
+# PLUGINS
 # =============================================================================
-# These are optional ZSH plugins that add extra functionality
+# Installed via the core Brewfile (zsh-autosuggestions, zsh-syntax-highlighting).
+# Order matters: autosuggestions first, then syntax-highlighting LAST (it must
+# be the last thing sourced so it can wrap all defined widgets). Guarded with
+# [[ -f ]] so a fresh machine (pre-install) or Intel paths don't error out.
 
-# Uncomment these if you want to add ZSH plugins
-# You'll need to install them first: brew install zsh-syntax-highlighting zsh-autosuggestions
+# Auto-suggestions: suggests commands from history (gray text, accept with →)
+for _zsh_autosuggestions in \
+  /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh \
+  /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh; do
+  [[ -f "$_zsh_autosuggestions" ]] && source "$_zsh_autosuggestions" && break
+done
+unset _zsh_autosuggestions
 
-# Syntax highlighting (install: brew install zsh-syntax-highlighting)
-# This highlights commands as you type them (green for valid, red for invalid)
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Auto-suggestions (install: brew install zsh-autosuggestions)
-# This suggests commands based on your history (gray text you can accept with right arrow)
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Syntax highlighting: colors commands as you type (green=valid, red=invalid).
+# MUST be sourced last.
+for _zsh_syntax_highlighting in \
+  /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+  /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh; do
+  [[ -f "$_zsh_syntax_highlighting" ]] && source "$_zsh_syntax_highlighting" && break
+done
+unset _zsh_syntax_highlighting
 
 # =============================================================================
 # END OF CONFIGURATION

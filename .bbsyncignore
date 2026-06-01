@@ -1,0 +1,9 @@
+# Packages bbsync should never auto-add to the Brewfile.
+# One entry per line, matched against the package name (basename). Lines
+# starting with # are comments.
+
+# Node is managed by `n` (see setup_node.zsh), not the brew `node` formula.
+node
+
+# gum is a bootstrap tool installed by setup_homebrew.zsh before the picker.
+gum

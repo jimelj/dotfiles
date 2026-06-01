@@ -34,11 +34,27 @@ export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 # Enables better completions for various shells and tools
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
 
+# Disable the zoxide "doctor" lint. It wants to be initialized last, but
+# zsh-syntax-highlighting must be sourced last (it wraps ZLE widgets). That
+# ordering is correct and zoxide works fine, so silence the harmless warning.
+export _ZO_DOCTOR=0
+
 # =============================================================================
 # PATH CONFIGURATION
 # =============================================================================
 # The PATH variable tells the shell where to look for executable programs
 # This should be in .zshenv so scripts and automation can access these paths
+
+# Homebrew environment (PATH, MANPATH, etc.)
+# This MUST run here in .zshenv (not just .zprofile) so that NON-login,
+# NON-interactive shells also get /opt/homebrew/bin on PATH. dotbot runs each
+# setup_*.zsh as a separate non-login shell, so without this the first install
+# fails (n/node/npm not found) and you'd have to run ./install twice.
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"     # Apple Silicon
+elif [[ -x /usr/local/bin/brew ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"        # Intel Mac fallback
+fi
 
 # Use typeset -U to make path array unique (no duplicates)
 # This prevents the same directory from being added to PATH multiple times

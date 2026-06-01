@@ -1,143 +1,121 @@
+# =============================================================================
+# Brewfile - the full list of everything you might install
+# =============================================================================
+# This is just a flat menu. You do NOT manage groups here. At install time,
+# setup_homebrew.zsh shows a checklist of every entry (pre-checked) and you
+# untick whatever you don't want on this machine. Mac App Store apps are only
+# offered when you're signed into the App Store.
+#
+# This is the shared "menu of everything" across all machines, so it's
+# hand-curated and append-only: add new packages by dropping a line here. Do NOT
+# auto-overwrite it - `bbd` snapshots a machine's installed set to Brewfile.local
+# (gitignored) instead, which you diff and copy from. npm globals live in
+# setup_node.zsh, and Node is managed by `n`, so there's no `node` formula here.
+#
+# The comment headers below are purely cosmetic grouping for human reading.
+
 tap "eth-p/software"
 tap "mongodb/brew"
 tap "supabase/tap"
-# C library of Git core methods that is re-entrant and linkable
-brew "libgit2"
-# Clone of cat(1) with syntax highlighting and Git integration
-brew "bat"
-# Multi-shell multi-command argument completer
-brew "carapace"
-# Modern, maintained replacement for ls
-brew "eza"
-# Like neofetch, but much faster because written mostly in C
-brew "fastfetch"
-# Simple, fast and user-friendly alternative to find
-brew "fd"
-# Command-line fuzzy finder written in Go
-brew "fzf"
-# GitHub command-line tool
-brew "gh"
-# Interpreter for PostScript and PDF
-brew "ghostscript"
-# CLI for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more
-brew "googleworkspace-cli"
-# Improved top (interactive process viewer)
-brew "htop"
-# User-friendly cURL replacement (command-line HTTP client)
-brew "httpie"
-# Lightweight and flexible command-line JSON processor
-brew "jq"
-# Pager program similar to more
-brew "less"
-# Sophisticated file transfer program
-brew "lftp"
-# LLVM's OpenMP runtime library
-brew "libomp"
-# Mac App Store command-line interface
-brew "mas"
-# Open-source, cross-platform JavaScript runtime environment
-brew "node"
-# Node version management
-brew "n"
-# Free (GNU) replacement for the Pico text editor
-brew "nano"
-# Ambitious Vim-fork focused on extensibility and agility
-brew "neovim"
-# Create, run, and share large language models (LLMs)
-brew "ollama"
-# Swiss-army knife of markup format conversion
-brew "pandoc"
-# Data loading tool for PostgreSQL
-brew "pgloader"
-# PDF rendering library (based on the xpdf-3.0 code base)
-brew "poppler"
-# Object-relational database system
-brew "postgresql@17", restart_service: :changed
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.12"
-# Generic machine emulator and virtualizer
-brew "qemu"
-# Command-line interface for Render
-brew "render"
-# Search tool like grep and The Silver Searcher
-brew "ripgrep"
-# Cross-shell prompt for astronauts
-brew "starship"
-# Easiest, most secure way to use WireGuard and 2FA
-brew "tailscale"
-# Programmatically correct mistyped console commands
-brew "thefuck"
-# Terminal multiplexer
-brew "tmux"
-# Display directories as trees (with optional color/HTML output)
-brew "tree"
-# Command-line unarchiving tools supporting multiple formats
-brew "unar"
-# Shell extension to navigate your filesystem faster
-brew "zoxide"
-# UNIX shell (command interpreter)
+
+# --- Shell + prompt -------------------------------------------------------
 brew "zsh"
-# Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
-# Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
-# Bash scripts that integrate bat with various command-line tools
+brew "starship"
+brew "carapace"
+
+# --- Core CLI -------------------------------------------------------------
+brew "bat"
 brew "eth-p/software/bat-extras"
-# High-performance, schema-free, document-oriented database
+brew "eza"
+brew "fastfetch"
+brew "fd"
+brew "fzf"
+brew "gh"
+brew "htop"
+brew "httpie"
+brew "jq"
+brew "less"
+brew "lftp"
+brew "libgit2"
+brew "mas"
+brew "n"
+brew "nano"
+brew "neovim"
+brew "ripgrep"
+brew "thefuck"
+brew "tmux"
+brew "tree"
+brew "unar"
+brew "zoxide"
+
+# --- Languages / data tooling ---------------------------------------------
+brew "python@3.12"
+brew "libomp"
+brew "postgresql@17", restart_service: :changed
 brew "mongodb/brew/mongodb-community@7.0"
-# Supabase CLI
+brew "pgloader"
 brew "supabase/tap/supabase"
-# Agent orchestration platform
-cask "antigravity"
-# Terminal interface for Antigravity agents
-cask "antigravity-cli"
-# OpenAI's official ChatGPT desktop app
-cask "chatgpt"
-# OpenAI's coding agent that runs in your terminal
-cask "codex"
-# Command-line agent for Cursor
-cask "cursor-cli"
-# Browser for SQLite databases
-cask "db-browser-for-sqlite"
-# Voice and text chat software
-cask "discord"
-# Drivers for DisplayLink docks, adapters and monitors
-cask "displaylink"
-# App to build and share containerised applications and microservices
-cask "docker-desktop"
-cask "font-jetbrains-mono-nerd-font"
-# Terminal emulator that uses platform-native UI and GPU acceleration
+brew "render"
+brew "qemu"
+
+# --- Document tooling -----------------------------------------------------
+brew "ghostscript"
+brew "pandoc"
+brew "poppler"
+
+# --- Networking / work ----------------------------------------------------
+brew "googleworkspace-cli"
+brew "tailscale"
+
+# --- AI -------------------------------------------------------------------
+brew "ollama"
+
+# --- Casks: terminal + fonts ----------------------------------------------
 cask "ghostty"
-# Web browser
-cask "google-chrome"
-# Software for Logitech devices
-cask "logitech-options"
-# Provides updates to various Microsoft products
-cask "microsoft-auto-update"
-# Office suite
-cask "microsoft-office-businesspro"
-# Interactive tool for analyzing MongoDB data
-cask "mongodb-compass"
-# Reverse proxy, secure introspectable tunnels to localhost
+cask "font-jetbrains-mono-nerd-font"
+
+# --- Casks: development ---------------------------------------------------
+cask "docker-desktop"
 cask "ngrok"
-# App to write, plan, collaborate, and get organised
-cask "notion"
-# Knowledge base that works on top of a local folder of plain text Markdown files
-cask "obsidian"
-# Collaboration platform for API development
 cask "postman"
-# Music streaming service
-cask "spotify"
-# Remote access and connectivity software focused on security
-cask "teamviewer"
-# Unpacks archive files
-cask "the-unarchiver"
-# Virtual machines UI using QEMU
+cask "db-browser-for-sqlite"
+cask "mongodb-compass"
 cask "utm"
-# Open-source code editor
 cask "visual-studio-code"
-# Video communication and virtual meeting platform
+
+# --- Casks: AI ------------------------------------------------------------
+cask "chatgpt"
+cask "codex"
+cask "cursor-cli"
+cask "antigravity"
+cask "antigravity-cli"
+
+# --- Casks: work / peripherals --------------------------------------------
+cask "microsoft-office-businesspro"
+cask "microsoft-auto-update"
+cask "google-chrome"
+cask "displaylink"
+cask "logitech-options"
+cask "teamviewer"
+
+# --- Casks: personal ------------------------------------------------------
+cask "spotify"
+cask "discord"
+cask "notion"
+cask "obsidian"
 cask "zoom"
+cask "the-unarchiver"
+
+# --- VS Code extensions ---------------------------------------------------
+vscode "github.vscode-github-actions"
+vscode "ms-python.debugpy"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
+
+# --- Mac App Store (offered only when signed in) --------------------------
 mas "Dashlane", id: 517914548
 mas "Hotspot Shield", id: 771076721
 mas "Notability", id: 360593530
@@ -145,16 +123,3 @@ mas "Tailscale", id: 1475387142
 mas "WhatsApp", id: 310633997
 mas "Windows App", id: 1295203466
 mas "Xcode", id: 497799835
-vscode "github.vscode-github-actions"
-vscode "ms-python.debugpy"
-vscode "ms-python.python"
-vscode "ms-python.vscode-pylance"
-vscode "ms-python.vscode-python-envs"
-npm "@anthropic-ai/claude-code"
-npm "@mermaid-js/mermaid-cli"
-npm "@railway/cli"
-npm "firebase-tools"
-npm "pnpm"
-npm "tailwindcss"
-npm "trash-cli"
-npm "yarn"

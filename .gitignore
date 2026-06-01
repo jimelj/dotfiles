@@ -1,4 +1,8 @@
 Brewfile.lock.json
 
+# Per-machine snapshot from the `bbd` alias; never tracked (keeps the master
+# Brewfile conflict-free across machines).
+Brewfile.local
+
 # Tmux plugins (managed by TPM)
 config/tmux/plugins/
