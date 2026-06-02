@@ -122,6 +122,11 @@ bbd() {
 # bbsync: append apps installed on THIS machine (but not yet in the master
 # Brewfile) to the Brewfile, then commit and push. `bbsync --dry-run` previews.
 bbsync() { "$HOME/.dotfiles/bbsync.zsh" "$@" }
+
+# focus-sync: sync the private Focus work repo (~/WebDev/Focus: code + Obsidian
+# vault) across machines. Bare command does commit + pull --rebase + push.
+# (Claude's own memory syncs separately via Syncthing, not this.)
+focus-sync() { "$HOME/.dotfiles/focus-sync.zsh" "$@" }
 alias trail='show_path'   # Show all directories in PATH (one per line) - uses function from .zshenv
 
 # THEFUCK ALIASES - Command correction tool
