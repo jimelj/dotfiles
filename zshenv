@@ -39,6 +39,13 @@ export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense'
 # ordering is correct and zoxide works fine, so silence the harmless warning.
 export _ZO_DOCTOR=0
 
+# Claude Code config directory. Points Claude at ~/.claude (instead of the
+# default ~/.claude.json at the home root) so auth + MCP config live inside the
+# Syncthing-synced ~/.claude folder and replicate across machines. Lives here in
+# .zshenv (not .zprofile) so it's tracked by dotfiles and reaches every machine,
+# and so non-login / IDE-launched shells get it too.
+export CLAUDE_CONFIG_DIR="$HOME/.claude"
+
 # =============================================================================
 # PATH CONFIGURATION
 # =============================================================================
