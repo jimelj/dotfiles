@@ -44,6 +44,7 @@ brew "n"
 brew "nano"
 brew "neovim"
 brew "ripgrep"
+brew "syncthing", restart_service: :changed  # P2P sync of ~/.claude across Macs (see SYNC-RUNBOOK / new-mac-setup)
 brew "thefuck"
 brew "tmux"
 brew "tree"
