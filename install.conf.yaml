@@ -20,6 +20,9 @@
     ~/.config/starship:
           create: true
           path: config/starship
+    ~/Library/LaunchAgents/com.jimelj.focus-sync.plist:
+      create: true
+      path: LaunchAgents/com.jimelj.focus-sync.plist
 - create:
     - ~/Work
     - ~/WebDev/Tutorials
@@ -41,3 +44,5 @@
       stdin: true
       stdout: true
       stderr: true
+    - description: Load the focus-sync LaunchAgent (8am/5pm). Idempotent; safe if already loaded.
+      command: launchctl bootout gui/$(id -u)/com.jimelj.focus-sync 2>/dev/null; launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.jimelj.focus-sync.plist 2>/dev/null; true

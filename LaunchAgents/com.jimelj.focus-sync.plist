@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.jimelj.focus-sync</string>
+
+  <!-- Run via a login zsh so PATH (set in .zshenv) finds git, etc. -->
+  <!-- Only act if the Focus repo actually exists, so on a machine without it -->
+  <!-- (e.g. a friend who cloned the public dotfiles) this is a silent no-op. -->
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/zsh</string>
+    <string>-lc</string>
+    <string>[ -d "$HOME/WebDev/Focus/.git" ] &amp;&amp; "$HOME/.dotfiles/focus-sync.zsh" sync &gt;&gt; "$HOME/Library/Logs/focus-sync.log" 2&gt;&amp;1</string>
+  </array>
+
+  <!-- Twice a day: 08:00 (pull latest to start) and 17:00 (commit + push). -->
+  <!-- If the Mac is asleep at those times, launchd runs it once on next wake. -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict>
+      <key>Hour</key><integer>8</integer>
+      <key>Minute</key><integer>0</integer>
+    </dict>
+    <dict>
+      <key>Hour</key><integer>17</integer>
+      <key>Minute</key><integer>0</integer>
+    </dict>
+  </array>
+
+  <key>RunAtLoad</key>
+  <false/>
+  <key>ProcessType</key>
+  <string>Background</string>
+</dict>
+</plist>
